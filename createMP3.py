@@ -5,9 +5,10 @@
 __author__ = "Robin Van der Gucht"
 
 import configparser
-import os, sys
+import os
 import random
 import string
+import sys
 
 config = configparser.ConfigParser()
 config.read('settings.ini')
@@ -22,7 +23,8 @@ def get_random_string():
 
 
 def give_random_name():
-   raise NotImplementedError("doesn't work yet")
+    for file in os.listdir("MP3s"):
+        os.rename("MP3s/" + file, "MP3s/{}{}".format(get_random_string(), ".mp3"))
 
 
 give_random_name()
